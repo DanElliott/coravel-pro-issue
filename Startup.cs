@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Coravel.Pro.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -16,6 +14,7 @@ namespace Sample
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<JobBoardContext>(options => options.UseInMemoryDatabase(databaseName: "JobBoard"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,5 +35,12 @@ namespace Sample
                 });
             });
         }
+    }
+
+    internal class JobBoardContext : DbContext, ICoravelProDbContext
+    {
+        public DbSet<CoravelJobHistory> Coravel_JobHistory { get; set; }
+        public DbSet<CoravelScheduledJob> Coravel_ScheduledJobs { get; set; }
+        public DbSet<CoravelScheduledJobHistory> Coravel_ScheduledJobHistory { get; set; }
     }
 }
