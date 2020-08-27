@@ -75,7 +75,7 @@ namespace Sample
         public DbSet<CoravelScheduledJobHistory> Coravel_ScheduledJobHistory { get; set; }
     }
 
-    public class MyFirstInvocable : IInvocable
+    public class MyFirstInvocableInvocable : IInvocable
     {
         public Task Invoke()
         {
