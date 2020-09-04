@@ -56,7 +56,7 @@ namespace Sample
                 endpoints.MapRazorPages();
                 endpoints.MapGet("/", async context =>
                 {
-                    await Task.Run(() => context.Response.Redirect(location: @"/Coravel/Scheduling", permanent: true));
+                    await Task.Run(() => context.Response.Redirect(location: @"/app/Coravel/Scheduling", permanent: false));
                 });
             });
 
