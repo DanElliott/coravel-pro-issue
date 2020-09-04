@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Coravel.Pro" Version="3.0.0-preview2" />
+    <PackageReference Include="Coravel.Pro" Version="4.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.7" />
   </ItemGroup>
 
